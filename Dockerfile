@@ -29,7 +29,7 @@ RUN npm install --only=production
 # Copy built application from builder stage
 COPY --from=builder /app/dist ./dist
 
-# Expose port
+# Expose port (Railway will set PORT environment variable)
 EXPOSE 3000
 
 # Start the application
