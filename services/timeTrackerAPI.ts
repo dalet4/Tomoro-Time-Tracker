@@ -1,23 +1,22 @@
 import type { TimeLog } from '../types.ts';
 
-// This is your live Airtable webhook URL.
-const AIRTABLE_WEBHOOK_URL = 'https://hooks.airtable.com/workflows/v1/genericWebhook/appDbaPMgEw6RIb3b/wflNqznG9IapoCGzf/wtrtK1GUpTvv4Fg9a';
+// Use our proxy API endpoint to avoid CORS issues
+const API_ENDPOINT = '/api/submit-time-log';
 
 /**
- * Submits a time log to the live Airtable webhook.
+ * Submits a time log via our proxy API endpoint.
  * @param log The time log data to submit.
  * @returns A promise that resolves with the result of the submission.
  */
 export const submitTimeLog = async (log: TimeLog): Promise<{ success: boolean; message: string }> => {
-  console.log('Submitting to Airtable Webhook:', JSON.stringify(log, null, 2));
+  console.log('Submitting to API:', JSON.stringify(log, null, 2));
 
   try {
-    const response = await fetch(AIRTABLE_WEBHOOK_URL, {
+    const response = await fetch(API_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      // Airtable's "When webhook received" trigger expects the JSON payload directly.
       body: JSON.stringify(log), 
     });
 
