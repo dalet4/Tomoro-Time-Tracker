@@ -1,0 +1,5 @@
+{
+  "name": "Tomoro Time Tracker",
+  "description": "A simple and elegant time tracking application for agencies. Enter your name and a client's name to start the timer. When you stop, the time log is prepared for submission.",
+  "requestFramePermissions": []
+}

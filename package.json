@@ -1,0 +1,12 @@
+{
+  "name": "tomoro-time-tracker",
+  "version": "1.0.0",
+  "description": "A simple time tracker application.",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s ."
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
