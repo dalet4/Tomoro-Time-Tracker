@@ -1,36 +1,25 @@
-# Build stage
-FROM node:18-alpine AS builder
+# Single stage build
+  FROM node:18-alpine
 
-WORKDIR /app
+  WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+  # Copy package files
+  COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+  # Install all dependencies (needed for build)
+  RUN npm install
 
-# Copy source code
-COPY . .
+  # Copy all source code
+  COPY . .
 
-# Build the application
-RUN npm run build
+  # Build the application
+  RUN npm run build
 
-# Production stage
-FROM node:18-alpine
+  # Clean up dev dependencies to reduce image size
+  RUN npm prune --production
 
-WORKDIR /app
+  # Expose port (Railway will set PORT environment variable)
+  EXPOSE 3000
 
-# Copy package files
-COPY package*.json ./
-
-# Install only production dependencies
-RUN npm install --only=production
-
-# Copy built application from builder stage
-COPY --from=builder /app/dist ./dist
-
-# Expose port (Railway will set PORT environment variable)
-EXPOSE 3000
-
-# Start the application
-CMD ["npm", "start"]
+  # Start the application
+  CMD ["node", "server.js"]
