@@ -1,4 +1,5 @@
- import React, { useState, useEffect, useCallback } from 'react';
+// Force rebuild - Updated with project description field
+  import React, { useState, useEffect, useCallback } from 'react';
   import { TomoroLogo } from './components/Logo.tsx';
   import { TimerDisplay } from './components/TimerDisplay.tsx';
   import { IconButton } from './components/IconButton.tsx';
