@@ -1,4 +1,4 @@
-// Force rebuild - Updated with project description field
+  // Force rebuild - Updated with project description field
   import React, { useState, useEffect, useCallback } from 'react';
   import { TomoroLogo } from './components/Logo.tsx';
   import { TimerDisplay } from './components/TimerDisplay.tsx';
@@ -49,6 +49,7 @@
       const timeLog: TimeLog = {
         user_name: userName,
         client_name: clientName,
+        project_description: projectDescription,
         start_time: startTime.toISOString(),
         end_time: endTime.toISOString(),
         duration_seconds: duration_seconds,
@@ -154,3 +155,16 @@
   };
 
   export default App;
+
+  Key change: Added project_description: projectDescription, on line 51 in the timeLog object.
+
+  Also update your types.ts file:
+
+  export interface TimeLog {
+    user_name: string;
+    client_name: string;
+    project_description: string;
+    start_time: string; // ISO 8601
+    end_time: string; // ISO 8601
+    duration_seconds: number; // Duration in seconds
+  }
