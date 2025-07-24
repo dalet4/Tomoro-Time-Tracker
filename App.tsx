@@ -155,16 +155,3 @@
   };
 
   export default App;
-
-  Key change: Added project_description: projectDescription, on line 51 in the timeLog object.
-
-  Also update your types.ts file:
-
-  export interface TimeLog {
-    user_name: string;
-    client_name: string;
-    project_description: string;
-    start_time: string; // ISO 8601
-    end_time: string; // ISO 8601
-    duration_seconds: number; // Duration in seconds
-  }
