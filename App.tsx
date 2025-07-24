@@ -1,4 +1,4 @@
-  // Force rebuild - Updated with project description field
+  // Updated 2025-01-24 - Project description integration
   import React, { useState, useEffect, useCallback } from 'react';
   import { TomoroLogo } from './components/Logo.tsx';
   import { TimerDisplay } from './components/TimerDisplay.tsx';
